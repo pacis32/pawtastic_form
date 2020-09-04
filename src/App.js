@@ -7,54 +7,82 @@ import {
 } from "react-router-dom";
 
 import './App.css';
-
+const routes = [
+  {
+    path: "/",
+    exact: true,
+    sidebar: () => <div>home!</div>,
+    main: () => <h2>Home</h2>
+  },
+  {
+    path: "/bubblegum",
+    sidebar: () => <div>bubblegum!</div>,
+    main: () => <h2>Bubblegum</h2>
+  },
+  {
+    path: "/shoelaces",
+    sidebar: () => <div>shoelaces!</div>,
+    main: () => <h2>Shoelaces</h2>
+  }
+];
 function App() {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav>
+    <div style={{ display: "flex" }}>
+      <div
+        style={{
+          padding: "20px",
+          width: "40%",
+          background: "#f0f0f0"
+        }}
+      >
+        <ul style={{ listStyleType: "none", padding: 0 }}>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/bubblegum">Bubblegum</Link>
+          </li>
+          <li>
+            <Link to="/shoelaces">Shoelaces</Link>
+          </li>
+        </ul>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+          {routes.map((route, index) => (
+            // You can render a <Route> in as many places
+            // as you want in your app. It will render along
+            // with any other <Route>s that also match the URL.
+            // So, a sidebar or breadcrumbs or anything else
+            // that requires you to render multiple things
+            // in multiple places at the same URL is nothing
+            // more than multiple <Route>s.
+            <Route
+              key={index}
+              path={route.path}
+              exact={route.exact}
+              children={<route.sidebar />}
+            />
+          ))}
         </Switch>
       </div>
-    </Router>
-  );
-}
 
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
+      <div style={{ flex: 1, padding: "20px" }}>
+        <Switch>
+          {routes.map((route, index) => (
+            // Render more <Route>s with the same paths as
+            // above, but different components this time.
+            <Route
+              key={index}
+              path={route.path}
+              exact={route.exact}
+              children={<route.main />}
+            />
+          ))}
+        </Switch>
+      </div>
+    </div>
+  </Router>
   
 
 
