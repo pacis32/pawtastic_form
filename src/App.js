@@ -15,17 +15,27 @@ const routes = [
     main: () => <h2>Home</h2>
   },
   {
-    path: "/bubblegum",
-    sidebar: () => <div>bubblegum!</div>,
-    main: () => <h2>Bubblegum</h2>
+    path: "/Human Profile",
+    sidebar: () => <div>Human Profile</div>,
+    main: () => <h2>Human Profile</h2>
   },
   {
-    path: "/shoelaces",
-    sidebar: () => <div>shoelaces!</div>,
-    main: () => <h2>Shoelaces</h2>
-  }
+    path: "/Pet basics",
+    sidebar: () => <div>Pet basics!</div>,
+    main: () => <h2>Pet basics</h2>
+  },
+  {
+    path: "/Pet details",
+    sidebar: () => <div>Pet details</div>,
+    main: () => <h2>Pet details</h2>
+  },
+  {
+    path: "/Pet details",
+    sidebar: () => <div>Pet details</div>,
+    main: () => <h2>Pet details</h2>
+  },
 ];
-function App() {
+ function App() {
   return (
     <Router>
     <div style={{ display: "flex" }}>
@@ -38,13 +48,13 @@ function App() {
       >
         <ul style={{ listStyleType: "none", padding: 0 }}>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">Homan profile</Link>
           </li>
           <li>
-            <Link to="/bubblegum">Bubblegum</Link>
+            <Link to="/Pet basics">Pet basics</Link>
           </li>
           <li>
-            <Link to="/shoelaces">Shoelaces</Link>
+            <Link to="/ Pet details">Pet details</Link>
           </li>
         </ul>
 
@@ -84,6 +94,7 @@ function App() {
     </div>
   </Router>
   
-
+  )
+          }
 
 export default App;
