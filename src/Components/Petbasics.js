@@ -86,8 +86,8 @@ export default class Petbasics extends React.Component {
         <br/>
         <input
           name="Weight"
-          onSelect=""
-          placeholder=""
+          onSelect="yes or No"
+          placeholder="weight"
           value={this.state.weight}
           
         />
