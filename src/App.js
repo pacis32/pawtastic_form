@@ -19,12 +19,12 @@ const routes = [
   {
     path: "/",
     exact: true,
-    sidebar: () => <div>home!</div>,
+    sidebar: () => <div></div>,
     main: () => <h2>Home</h2>
   },
   {
     path: "/Human Profile",
-    sidebar: () => <div>Human Profile</div>,
+    sidebar: () => <div></div>,
     main: () => <HumanProfile/>
   },
   {
@@ -34,7 +34,7 @@ const routes = [
   },
   {
     path: "/Pet details",
-    sidebar: () => <div>Pet details</div>,
+    sidebar: () => <div></div>,
     main: () => <Petdetails/>
   },
   {
