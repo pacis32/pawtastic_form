@@ -79,8 +79,16 @@ export default class Petbasics extends React.Component {
          <input
           name="Spayed or Neutered"
           onSelect=""
-          placeholder=""
+          placeholder="yes or no"
           value={this.state.stayed}
+          
+        />
+        <br/>
+        <input
+          name="Weight"
+          onSelect=""
+          placeholder=""
+          value={this.state.weight}
           
         />
         
