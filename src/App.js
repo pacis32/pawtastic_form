@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,6 +7,14 @@ import {
 } from "react-router-dom";
 
 import './App.css';
+import Petbasics from './Components/Petbasics';
+import Petdetails from './Components/Petdetails';
+import Comfirm from './Components/Confirm';
+import HumanProfile from './Components/HumanProfile';
+import Background from './Images/pet-image.jpeg';
+
+
+
 const routes = [
   {
     path: "/",
@@ -17,44 +25,64 @@ const routes = [
   {
     path: "/Human Profile",
     sidebar: () => <div>Human Profile</div>,
-    main: () => <h2>Human Profile</h2>
+    main: () => <HumanProfile/>
   },
   {
-    path: "/Pet basics",
-    sidebar: () => <div>Pet basics!</div>,
-    main: () => <h2>Pet basics</h2>
-  },
-  {
-    path: "/Pet details",
-    sidebar: () => <div>Pet details</div>,
-    main: () => <h2>Pet details</h2>
+    path: "/Petbasics",
+    sidebar: () => <div></div>,
+    main: () => <Petbasics/>
   },
   {
     path: "/Pet details",
     sidebar: () => <div>Pet details</div>,
-    main: () => <h2>Pet details</h2>
+    main: () => <Petdetails/>
+  },
+  {
+    path: "/Confirm",
+    sidebar: () => <div>Confirm</div>,
+    main: () => <Comfirm/>
   },
 ];
- function App() {
-  return (
+class App extends Component {
+
+  state = {
+    fields: {}
+  };
+
+  onChange = updatedValue => {
+    this.setState({
+      fields: {
+        ...this.state.fields,
+        ...updatedValue
+      }
+    });
+  };
+  render(){
+    return (
     <Router>
     <div style={{ display: "flex" }}>
       <div
         style={{
-          padding: "20px",
+          padding: "50px",
           width: "40%",
-          background: "#f0f0f0"
+          height:"60%",
+          background: "#f0f0f0",
+          backgroundImage: `url(${Background})`
+          
         }}
       >
-        <ul style={{ listStyleType: "none", padding: 0 }}>
+        <ul style={{ listStyleType: "none", padding: 0 ,height:"60%"}}>
           <li>
-            <Link to="/">Homan profile</Link>
+            <Link to="/">Human profile</Link>
           </li>
           <li>
-            <Link to="/Pet basics">Pet basics</Link>
+            <Link to="/Petbasics" >Petbasics</Link>
           </li>
           <li>
             <Link to="/ Pet details">Pet details</Link>
+          </li>
+          <li>
+            <Link to="/ Confirm">Confirm</Link>
           </li>
         </ul>
 
@@ -95,6 +123,7 @@ const routes = [
   </Router>
   
   )
-          }
+          }}
+  
 
 export default App;
