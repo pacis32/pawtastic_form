@@ -55,6 +55,7 @@ export default class Petbasics extends React.Component {
           
         />
         <input
+        name= "Upload a picture"
         type="file"
         id="upload-button"
         style={{ display: "none" }}
