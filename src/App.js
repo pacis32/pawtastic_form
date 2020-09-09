@@ -39,7 +39,7 @@ const routes = [
   },
   {
     path: "/Confirm",
-    sidebar: () => <div>Confirm</div>,
+    sidebar: () => <div></div>,
     main: () => <Comfirm/>
   },
 ];
@@ -73,13 +73,13 @@ class App extends Component {
       >
         <ul style={{ listStyleType: "none", padding: 0 ,height:"60%"}}>
           <li>
-            <Link to="/">Human profile</Link>
+            <Link to="/">Humanprofile</Link>
           </li>
           <li>
             <Link to="/Petbasics" >Petbasics</Link>
           </li>
           <li>
-            <Link to="/ Pet details">Pet details</Link>
+            <Link to="/ Petdetails">Petdetails</Link>
           </li>
           <li>
             <Link to="/ Confirm">Confirm</Link>
