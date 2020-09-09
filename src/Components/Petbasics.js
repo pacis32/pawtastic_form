@@ -43,6 +43,10 @@ export default class Petbasics extends React.Component {
 
   render() {
     return (
+      <React.Fragment>
+      <div>
+        <h2> Yay, We Love dogs! Give us the basics about your pup.</h2>
+      </div>
       <form>
         <input
           name="Name"
@@ -96,6 +100,7 @@ export default class Petbasics extends React.Component {
         <button onClick={e => this.onSubmit(e)}>Back</button>
         <button onClick={e => this.onSubmit(e)}>Next</button>
       </form>
+      </React.Fragment>
     );
   }
 }
